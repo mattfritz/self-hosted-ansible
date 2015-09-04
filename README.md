@@ -11,7 +11,7 @@ This is a repo for my self hosted applications. The plan is to use Docker for mo
 
 ## Usage
 
-To run agaist a remote host, configure another host in the `hosts` inventory file and execute `ansible-playbook playbook.yml`
+To run agaist a remote host, configure another host in the `hosts` inventory file and execute `ansible-playbook -i hosts playbook.yml`
 
 ## License
 
