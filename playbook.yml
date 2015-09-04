@@ -1,0 +1,6 @@
+---
+- name: Run docker.ubuntu
+  hosts: all
+  sudo: yes
+  roles:
+    - angstwad.docker_ubuntu
