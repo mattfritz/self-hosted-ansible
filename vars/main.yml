@@ -1,0 +1,4 @@
+---
+mysql_password: SOME_PASSWORD_HERE
+app_password_salt: SOME_PASSWORD_SALT_HERE
+app_secret_token: SOME_APP_SECRET_HERE
