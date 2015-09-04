@@ -1,5 +1,5 @@
 [vagrant]
-192.168.2.200
+192.168.2.200 ansible_ssh_user=vagrant
 
 # [digitalocean]
-# INSERT IP HERE
+# INSERT IP HERE ansible_ssh_user=root
