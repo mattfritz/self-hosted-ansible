@@ -1,6 +1,43 @@
 ---
-- name: Run docker.ubuntu
+- name: Install Docker
   hosts: all
   sudo: yes
   roles:
     - angstwad.docker_ubuntu
+
+- hosts: all
+  sudo: yes
+  tasks:
+  - name: Clone TracksApp repo
+    git: repo=https://github.com/mattfritz/tracks
+      version=version_2_3_0
+      dest=/tmp/apps/tracks
+      force=yes
+      accept_hostkey=True
+  - name: Check or build Tracks Docker image
+    docker_image: path="/tmp/apps/tracks" name="tracks" state=build
+  - name: Create persistent data directory for MySql
+    file: path=/data state=directory mode=0755
+  - name: Start MySql docker container
+    docker:
+      name: mysql
+      image: mysql:5.7.8
+      state: started
+      volumes:
+      - /data
+      env:
+        MYSQL_ROOT_PASSWORD: "{{ mysql_password }}"
+  - name: Start app container
+    docker:
+      name: tracks
+      image: tracks
+      state: started
+      links:
+      - "mysql:mysql"
+      ports:
+        - "80:3000"
+      env:
+        MYSQL_HOST: mysql
+        MYSQL_PASSWORD: "{{ mysql_password }}"
+        APP_PASSWORD_SALT: "{{ app_password_salt }}"
+        APP_SECRET_TOKEN: "{{ app_secret_token }}"
