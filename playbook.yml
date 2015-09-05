@@ -19,7 +19,7 @@
       state: reloaded
       restart_policy: always
       volumes:
-      - /data
+      - /data:/var/lib/mysql
       env:
         MYSQL_ROOT_PASSWORD: "{{ mysql_password }}"
   - name: Run tracks application
