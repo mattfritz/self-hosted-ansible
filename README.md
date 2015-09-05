@@ -2,6 +2,25 @@
 
 This is a repo for my self hosted applications. The plan is to use Docker for most applications and host on DigitalOcean.
 
+### Planned Applications
+
+- [x] [TracksApp](http://www.getontracks.org/)
+- [ ] [OpenVPN](https://openvpn.net/)
+- [ ] [Shout IRC](http://shout-irc.com/)
+- [ ] [Huginn build agents](https://github.com/cantino/huginn)
+- [ ] [ThinkUp](https://www.thinkup.com/)
+- [ ] [SnowPlow Analytics](http://snowplowanalytics.com/)
+- [ ] [Mumble](http://wiki.mumble.info/wiki/Main_Page)
+- [ ] [Feed HQ Reader](https://feedhq.org/)
+- [ ] 750words.com clone (work in progress)
+- [ ] [MindMaps](https://github.com/drichard/mindmaps)
+- [ ] [wger workout tracker](https://github.com/rolandgeider/wger)
+- [ ] [Dillinger markdown](https://github.com/joemccann/dillinger/)
+- [ ] [Reportr](https://github.com/Reportr/dashboard)
+- [ ] [Gogs](https://github.com/gogits/gogs)
+- [ ] [Jenkins CI](https://jenkins-ci.org/)
+- [ ] [Kanboard](http://kanboard.net/)
+
 ## Installation
 
 1. [Install Ansible](http://docs.ansible.com/ansible/intro_installation.html)
@@ -11,7 +30,15 @@ This is a repo for my self hosted applications. The plan is to use Docker for mo
 
 ## Usage
 
-To run agaist a remote host, configure another host in the `hosts` inventory file and execute `ansible-playbook -i hosts playbook.yml`
+To run agaist a remote host, configure another host in the `hosts` inventory file, add required
+application variables to `vars/main.yml` and execute `ansible-playbook -i hosts playbook.yml`
+
+## TODO
+
+- [ ] Bootstrap database on initial provision
+- [ ] Backup database snapshots to S3
+- [ ] Use example `yml` files for secrets
+- [ ] Makefile for common tasks
 
 ## License
 
